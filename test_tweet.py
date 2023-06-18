@@ -41,6 +41,15 @@ class TestTweet(unittest.TestCase):
 		self.assertEqual(mock_post.call_args[1]["headers"], {'Content-Type': 'application/json'})
 		self.assertEqual(str(type(mock_post.call_args[1]["auth"])), "<class 'requests_oauthlib.oauth1_auth.OAuth1'>")
 
+	@mock.patch('tweet.requests.post')
+	def test_GIVEN_message_WHEN_building_request_AND_incorrect_response_THEN_an_error_is_thrown(self, mock_post):
+		mock_post.return_value.status_code = 401
+		mock_post.return_value.json.return_value = {"response": "NOT OK"}
+		expected_exception = ValueError("Error 401. Response: {\"response\": \"NOT OK\"}. Tweet: " + tweet.build_message())
+		with self.assertRaises(Exception) as context:
+			tweet.make_request()
+		self.assertTrue(context.exception)
+
 def set_global_mocks():
 	tweet.get_url = mock.Mock(return_value="http://bmsalamanca.com/others/AlviaSalamancaBot/request.txt")
 	os.environ["CONSUMER_KEY"] = "CONSUMER_KEY"

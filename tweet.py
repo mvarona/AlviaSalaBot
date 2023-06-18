@@ -52,8 +52,12 @@ def make_request():
 	else:
 		debug_response = response.text
 
-	print("Status: " + str(response.status_code) + ". Tweet: " + build_message())
-	return True
+	if response.status_code not in range(200, 300):
+		raise ValueError("Error " + str(response.status_code) + ". Response: " + debug_response + ". Tweet: " + build_message())
+		return False
+	else:
+		print("Status: " + str(response.status_code) + ". Tweet: " + build_message())
+		return True
 
 def main():
 	load_dotenv()
