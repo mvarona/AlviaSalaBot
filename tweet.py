@@ -15,7 +15,7 @@ def days_between(date1, date2):
 def build_message():
 	today = date.today().strftime("%Y-%m-%d")
 	days = days_between("2020-03-14", today)
-	message = "Hace " + str(days) + " días @Renfe quitó el 50% de los Alvia entre Salamanca y Madrid.\nLlevamos 3 años y medio aún más aislados!!\nHartos de ser ciudadanos de 2ª!\nFirma https://www.change.org/p/tren-rápido-salamanca-ya\n@oscar_puente_ @transportesgob @alferma1 @CGCarbayo\n#EspañaVaciada #Renfe #TrenRápidoYa"
+	message = "Hace " + str(days) + " días (4 años!!) @Renfe quitó el 50% de los Alvia Salamanca-Madrid.\nAún no han vuelto.\nLlenamos la plaza.\nY nos mintieron.\nHasta cuándo este desprecio.\nFirma https://www.change.org/p/tren-rápido-salamanca-ya\n@oscar_puente_ @transportesgob @alferma1 @CGCarbayo\n#EspañaVaciada #Renfe #TrenRápidoYa"
 	return message
 
 def format_message(message):

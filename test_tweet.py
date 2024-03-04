@@ -27,7 +27,7 @@ class TestTweet(unittest.TestCase):
 		d0 = date(2020, 3, 14)
 		d1 = date.today()
 		days = (d1 - d0).days
-		expected_message = "Hace " + str(days) + " días @Renfe quitó el 50% de los Alvia entre Salamanca y Madrid.\nLlevamos 3 años y medio aún más aislados!!\nHartos de ser ciudadanos de 2ª!\nFirma https://www.change.org/p/tren-rápido-salamanca-ya\n@oscar_puente_ @transportesgob @alferma1 @CGCarbayo\n#EspañaVaciada #Renfe #TrenRápidoYa";
+		expected_message = "Hace " + str(days) + " días (4 años!!) @Renfe quitó el 50% de los Alvia Salamanca-Madrid.\nAún no han vuelto.\nLlenamos la plaza.\nY nos mintieron.\nHasta cuándo este desprecio.\nFirma https://www.change.org/p/tren-rápido-salamanca-ya\n@oscar_puente_ @transportesgob @alferma1 @CGCarbayo\n#EspañaVaciada #Renfe #TrenRápidoYa"
 		result = tweet.build_message()
 		self.assertEqual(result, expected_message)
 
